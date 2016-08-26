@@ -48,8 +48,10 @@ public class NioDemo {
 		channel.close();
 		afile.close();
 		
-		System.out.println(Charset.forName("UTF-16")  
+		System.out.println(Charset.forName("UTF-8")  
                 .newDecoder().decode(bu).toString());
+		
+		
 	}
 	
 	public void nioServer() throws IOException{

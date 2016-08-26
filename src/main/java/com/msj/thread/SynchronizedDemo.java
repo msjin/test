@@ -5,7 +5,8 @@ public class SynchronizedDemo implements Runnable {
 	private boolean who = true;
 	
 	public static void main(String[] args) {
-		for(;;){
+//		for(;;){
+		for(int i=0;i<10;i++){
 			SynchronizedDemo demo = new SynchronizedDemo();
 			Thread t = new Thread(demo);
 			t.start();
