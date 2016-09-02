@@ -1,5 +1,7 @@
 package com.msj.netty;
 
+import org.springframework.stereotype.Component;
+
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -8,17 +10,23 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 
+@Component
 public class EchoClient {
 
-	private final String host;
-	private final int port;
+	private String host = "127.0.0.1";
+	private int port = 8088;
 	
+	
+	public EchoClient() {
+		super();
+	}
+
 	public EchoClient(String host, int port){
 		this.host = host;
 		this.port = port;
 	}
 	
-	public void start() throws InterruptedException{
+	public void connect() throws InterruptedException{
 		EventLoopGroup group = new NioEventLoopGroup();
 		
 		try {
@@ -45,6 +53,6 @@ public class EchoClient {
 	public static void main(String[] args) throws InterruptedException {
 		String host = "127.0.0.1";
 		int port = 8088;
-		new EchoClient(host, port).start();
+		new EchoClient(host, port).connect();
 	}
 }

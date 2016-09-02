@@ -10,6 +10,12 @@ public class HelloWorldImpl implements HelloWorld {
 		System.out.println(name + " running...");
 		return "OK";
 	}
+
+	@Override
+	public String run(String name, int rank) {
+		System.out.println(name+" run.. rank:"+rank);
+		return "slkfjsdlfjlsdk";
+	}
 	
 
 }
